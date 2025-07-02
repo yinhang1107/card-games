@@ -57,6 +57,6 @@ const canShowNextRoundButton = computed(() => {
 });
 
 const canStartNextRound = computed(() => {
-  return props.randomCardDecks?.length ?? 0 > (props.players ?? 0);
+  return (props.randomCardDecks?.length ?? 0) >= (props.players ?? 0);
 });
 </script>

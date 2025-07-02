@@ -1,16 +1,33 @@
 <template>
-  <div v-if="!isGameStarted">Card games</div>
-  <q-btn
-    v-if="!isGameStarted"
-    color="primary"
-    label="Start"
-    class="q-my-md"
-    @click="
-      () => {
-        startGame();
-      }
-    "
-  />
+  <div v-if="!isGameStarted">
+    <div>Card games</div>
+    <q-input
+      outlined
+      v-model="players"
+      label="Players"
+      type="number"
+      :rules="[(val) => val >= 1 || 'Must be greater than 1 player']"
+    />
+    <q-input
+      outlined
+      v-model="decks"
+      label="Decks"
+      type="number"
+      :rules="[(val) => val >= 1 || 'Must be greater than 1 deck']"
+    />
+
+    <q-btn
+      v-if="!isGameStarted"
+      color="primary"
+      label="Start"
+      class="q-my-md"
+      @click="
+        () => {
+          startGame();
+        }
+      "
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -29,6 +46,8 @@ const emits = defineEmits<{
 }>();
 
 function startGame() {
-  emits('start-game', { players: players.value, decks: decks.value });
+  if (players.value > 0 && decks.value > 0) {
+    emits('start-game', { players: Number(players.value), decks: Number(decks.value) });
+  }
 }
 </script>
