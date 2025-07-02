@@ -34,7 +34,7 @@ function generateCardDecks(num = 1) {
   })
 
   const result: string[] = []
-  if (num > 1) {
+  if (num >= 1) {
     for (let index = 0; index < num; index++) {
       result.push(...cardDecks)
     }
