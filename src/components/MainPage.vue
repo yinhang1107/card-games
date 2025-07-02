@@ -15,6 +15,7 @@
         <q-card
           v-for="(player, index) of players"
           :key="player"
+          :style="{ minWidth: '300px' }"
           class="col-md-3 col-sm-5 col-xs-11 q-ma-md"
         >
           <q-card-section>Player : {{ index }}</q-card-section>
