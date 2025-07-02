@@ -33,13 +33,14 @@ function generateCardDecks(num = 1) {
     })
   })
 
+  const result: string[] = []
   if (num > 1) {
-    for (let index = 0; index < num - 1; index++) {
-      cardDecks.push(...cardDecks)
+    for (let index = 0; index < num; index++) {
+      result.push(...cardDecks)
     }
   }
 
-  return cardDecks
+  return result
 }
 
 
